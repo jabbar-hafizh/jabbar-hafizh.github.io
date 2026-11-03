@@ -166,9 +166,9 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
 .edu p { margin: 0 0 4px; }
 
 /* Contact */
-.contact p { margin: 0 0 8px; }
+.contact p { margin: 0 0 16px; }
 .mail-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.mail { font: 500 20px var(--mono); }
+.mail { font: 500 16px var(--mono); }
 .copy {
   padding: 4px 12px;
   border: 1px solid var(--line);
@@ -205,7 +205,7 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
   .job-meta .place::before { content: "\00b7  "; }
   .skills dd { margin-bottom: 10px; }
   .earlier { margin-left: 0; }
-  .mail { font-size: 17px; }
+  .mail { font-size: 15px; }
 }
 
 .products { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
