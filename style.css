@@ -112,19 +112,18 @@ h1 { margin: 0 0 12px; font-size: 40px; line-height: 1.15; letter-spacing: -0.02
 .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .btn-primary:hover { border-color: var(--accent); opacity: 0.9; }
 
-/* Facts */
-.facts {
+/* Main stack */
+.stack {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   margin-bottom: 16px;
 }
-.facts div { padding: 16px 20px; display: flex; flex-direction: column; }
-.facts div + div { border-left: 1px solid var(--line); }
-.fact-num { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
-.fact-label { font-size: 13px; color: var(--muted); }
+.stack div { padding: 14px 0; display: flex; flex-direction: column; }
+.stack div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.stack-label { font: 500 12px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.stack-value { font-size: 16px; font-weight: 600; }
 
 /* Sections */
 section { padding: 40px 0 8px; }
@@ -154,22 +153,9 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
 .earlier li { margin-bottom: 6px; }
 .earlier strong { color: var(--text); font-weight: 600; }
 
-/* Projects */
-.project {
-  display: block;
-  padding: 20px 24px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--surface);
-  color: var(--text);
-  transition: border-color 0.15s;
-}
-.project:hover { border-color: var(--accent); text-decoration: none; }
-.project-head { display: flex; justify-content: space-between; align-items: baseline; }
-.project h3 { font-family: var(--mono); font-size: 16px; }
-.project p { margin: 0; color: var(--muted); }
-.project .tags { margin-top: 12px; }
-.arrow { color: var(--accent); }
+/* Side project */
+.side { margin: 0; color: var(--muted); }
+.side a { font-family: var(--mono); font-size: 15px; }
 
 /* Skills */
 .skills { display: grid; grid-template-columns: 160px 1fr; gap: 10px 24px; margin: 0; }
@@ -181,7 +167,18 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
 
 /* Contact */
 .contact p { margin: 0 0 8px; }
+.mail-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .mail { font: 500 20px var(--mono); }
+.copy {
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 500 13px var(--sans);
+  cursor: pointer;
+}
+.copy:hover { color: var(--text); border-color: var(--muted); }
 
 .footer {
   display: flex;
@@ -200,8 +197,8 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
   .avatar { width: 88px; height: 88px; }
   h1 { font-size: 32px; }
   .lead { font-size: 16px; }
-  .facts { grid-template-columns: 1fr; }
-  .facts div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .stack { grid-template-columns: 1fr; }
+  .stack div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
   .job, .skills { grid-template-columns: 1fr; gap: 4px; }
   .job { padding-bottom: 28px; }
   .job-meta { flex-direction: row; gap: 8px; }
@@ -210,3 +207,6 @@ h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
   .earlier { margin-left: 0; }
   .mail { font-size: 17px; }
 }
+
+.products { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
+.products strong { color: var(--text); font-weight: 600; }

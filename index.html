@@ -28,7 +28,7 @@
       <a class="brand" href="#top">jabbar-hafizh</a>
       <nav>
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects">Side project</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
@@ -46,24 +46,24 @@
         <p class="eyebrow">Backend Engineer &middot; Bogor, Indonesia</p>
         <h1>Abdul Jabbar Hafizh</h1>
         <p class="lead">
-          I build distributed backend systems in <strong>Go</strong> and <strong>TypeScript</strong>:
-          gRPC microservices, contract-first APIs and PostgreSQL, currently for geospatial
-          analytics and location-targeting products used by enterprise clients.
+          I turn product requirements into backend systems that hold up in production.
+          For the past four years I've been building the backend behind location
+          intelligence products like LOKASI Intelligence and Targetin, used by enterprise
+          clients, and helping the team ship them with care.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="resume.pdf" download>Download resume</a>
           <a class="btn" href="https://github.com/jabbar-hafizh">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/abdul-jabbar-hafizh">LinkedIn</a>
-          <a class="btn" href="mailto:jabbarworld1@gmail.com">Email</a>
         </div>
       </div>
     </section>
 
-    <section class="facts" aria-label="At a glance">
-      <div><span class="fact-num">5+</span><span class="fact-label">years in backend</span></div>
-      <div><span class="fact-num">Go</span><span class="fact-label">gRPC &middot; Protobuf &middot; REST</span></div>
-      <div><span class="fact-num">95%</span><span class="fact-label">unit coverage gates in CI</span></div>
-    </section>
+    <div class="stack" aria-label="Main stack">
+      <div><span class="stack-label">Languages</span><span class="stack-value">Go, TypeScript</span></div>
+      <div><span class="stack-label">Databases</span><span class="stack-value">SQL, NoSQL</span></div>
+      <div><span class="stack-label">APIs</span><span class="stack-value">gRPC, REST, GraphQL</span></div>
+    </div>
 
     <section id="experience">
       <h2>Experience</h2>
@@ -75,8 +75,13 @@
         </div>
         <div class="job-body">
           <h3>Backend Engineer <span class="at">at Bhumi Varta Technology</span></h3>
+          <p class="products">
+            Products: <strong>LOKASI Intelligence</strong> (geospatial analytics),
+            <strong>Targetin</strong> (location targeting), and client platforms for
+            Pertamina, Telkom Property and HSO.
+          </p>
           <ul>
-            <li>Re-platformed the core location-targeting service from NestJS to Go as one of its main contributors.</li>
+            <li>Re-platformed Targetin's core location-targeting service from NestJS to Go as one of its main contributors.</li>
             <li>Design contract-first APIs and gRPC services for communication across the backend platform, and contribute to architecture and technical planning for core product features.</li>
             <li>Built a dataset-matching pipeline with streaming ingestion, schema validation and concurrent processing.</li>
             <li>Built OAuth2 authorization and SSO session management for an internal identity provider, and region-scoped RBAC so users only see data for their authorized regions.</li>
@@ -115,28 +120,21 @@
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <a class="project" href="https://github.com/jabbar-hafizh/go-api-starter">
-        <div class="project-head">
-          <h3>go-api-starter</h3>
-          <span class="arrow" aria-hidden="true">&#8599;</span>
-        </div>
-        <p>
-          Go backend API with password and Google sign-in for web and mobile clients.
-          Spec-first with OpenAPI, one package per feature in a single binary, and every
-          architectural decision documented with its source.
-        </p>
-        <p class="tags">Go &middot; OpenAPI / oapi-codegen &middot; sqlc &middot; pgx &middot; goose &middot; Docker</p>
-      </a>
+      <h2>On the side</h2>
+      <p class="side">
+        <a href="https://github.com/jabbar-hafizh/go-api-starter">go-api-starter</a>,
+        a small Go API with password and Google sign-in that I use to try out project
+        structure and tooling ideas.
+      </p>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
       <dl class="skills">
-        <dt>Languages</dt><dd>Go, TypeScript, JavaScript, Python, PHP, SQL</dd>
+        <dt>Languages</dt><dd>Go, TypeScript, JavaScript, Python, PHP</dd>
+        <dt>Databases</dt><dd>SQL (PostgreSQL) and NoSQL (MongoDB, Redis); indexing, query optimization, migrations</dd>
         <dt>Frameworks</dt><dd>Echo, NestJS, FastAPI, Flask, Laravel, Celery</dd>
         <dt>APIs</dt><dd>gRPC and streaming, Protocol Buffers, REST, OpenAPI (contract-first), GraphQL, WebSockets</dd>
-        <dt>Data</dt><dd>PostgreSQL, MongoDB, Redis; sqlx, TypeORM, SQLAlchemy; indexing, query optimization, migrations</dd>
         <dt>Infra</dt><dd>Docker, GitHub Actions, Azure Blob Storage</dd>
         <dt>Quality</dt><dd>testify, gomock, Jest, Cypress + Cucumber (BDD), Datadog APM, SonarQube, Snyk</dd>
         <dt>Architecture</dt><dd>Microservices, Backend-for-Frontend, clean architecture, OAuth2, JWT, SSO, RBAC, caching, distributed locking, worker pools</dd>
@@ -157,7 +155,10 @@
     <section id="contact" class="contact">
       <h2>Contact</h2>
       <p>Open to backend engineering roles. The quickest way to reach me is email.</p>
-      <p><a class="mail" href="mailto:jabbarworld1@gmail.com">jabbarworld1@gmail.com</a></p>
+      <p class="mail-row">
+        <span class="mail">jabbarworld1@gmail.com</span>
+        <button class="copy" type="button" data-copy="jabbarworld1@gmail.com">Copy</button>
+      </p>
     </section>
   </main>
 
@@ -175,6 +176,13 @@
         : matchMedia('(prefers-color-scheme: dark)').matches;
       root.dataset.theme = dark ? 'light' : 'dark';
       try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    });
+    document.querySelector('.copy').addEventListener('click', function () {
+      var btn = this;
+      navigator.clipboard.writeText(btn.dataset.copy).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+      });
     });
   </script>
 </body>
